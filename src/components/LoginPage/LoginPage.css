@@ -1,0 +1,74 @@
+.usern{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+}
+.box{
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    display: flex center;
+    padding-top: 20px;
+}
+.up{
+    padding: 5px;
+    margin: 5px;
+}
+.head33{
+    text-align: center;
+}
+.xx{
+    text-align: center;
+    color:rgb(14, 70, 9)
+}
+.yy{
+    text-align: center;
+    color:rgb(14, 70, 9)
+}
+.container{
+    height: 650px;
+    width: 1400px;
+    background-size: cover;
+}
+backgroundImage{
+    height:700px;
+    width:1400px;
+}
+.xz{
+    background-color: rgb(14, 70, 9);
+    width: 150px;
+    height: 30px;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+body{
+    background-image:url("https://png.pngtree.com/thumb_back/fw800/back_our/20200817/ourmid/pngtree-simple-white-brick-wall-h5-background-material-png-image_395684.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.header{
+    background-image:url("https://t3.ftcdn.net/jpg/03/34/12/38/240_F_334123815_RvVT40EsRbZNTVBL6QUdhZwqJ1pv0BFH.jpg" ) ;
+}
+.b2{
+    background-color:rgb(14, 70, 9);
+    border-radius: 10px;
+    margin-left: 480px;
+    margin-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.b3{
+    background-color:rgb(14, 70, 9);
+    border-radius: 10px;
+    margin-left: 15px;
+    margin-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.hs{
+    margin-left: 440px;
+    margin-top: 20px;
+}

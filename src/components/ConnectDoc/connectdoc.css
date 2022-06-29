@@ -1,0 +1,28 @@
+.card{
+    height: 450px;
+    width: 300px;
+    border-radius: 50px;
+    border-color: rgb(14, 70, 9);
+    padding-top: 10px;
+    border-width: 10px;
+}
+.card img{
+    width: 290px;
+    padding-left: 7.5px;
+    border-color: black;
+}
+.cardalign{
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    display: flex center;
+    padding-top: 20px;
+}
+.r1{
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    display: flex center;
+    padding-top: 20px;
+    padding-left: 80px;
+}
