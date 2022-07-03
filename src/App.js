@@ -57,7 +57,7 @@ function App(props) {
           <Shipment></Shipment>
          </PrivateRoute>
          <Route exact path="/">
-           <LoginPage></LoginPage>
+           <Login></Login>
          </Route>
          <Route path="/Product/:productkey">
           <ProductDetail></ProductDetail>

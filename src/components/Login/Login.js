@@ -1,22 +1,31 @@
 import React from 'react';
 import { initializeApp } from "firebase/app";
 import firebaseConfig from "../../firebase.config";
- 
-import { getAuth,updateProfile,signInWithEmailAndPassword ,createUserWithEmailAndPassword, signInWithPopup,signOut, GoogleAuthProvider } from "firebase/auth";
-import { ControlPointDuplicateOutlined } from "@material-ui/icons";
-import { useContext, useState } from "react";
-import { UserContext } from "../../App";
-import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Dialog from '@material-ui/core/Dialog';
 import Button from '@material-ui/core/Button';
-import Header from '../Header/Header';
+import './Login.css';
+ 
+import { getAuth,updateProfile,signInWithEmailAndPassword ,createUserWithEmailAndPassword, signInWithPopup,signOut, GoogleAuthProvider } from "firebase/auth";
+import { ControlPointDuplicateOutlined } from "@material-ui/icons";
+import { useContext, useState } from "react";
+import { UserContext } from "../../App";
+import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 const app = initializeApp(firebaseConfig);
 
 function Login() {
+  const [open, setOpen] = React.useState(false);
+    
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  
+  const handleClose = () => {
+    setOpen(false);
+  };
   const [newUser,setNewUser]=useState(false);
   const [user, setUser] = useState({
     isSignedIn: false,
@@ -69,15 +78,6 @@ function Login() {
 
      
   };
-  const [open, setOpen] = React.useState(false);
-    
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-    
-    const handleClose = () => {
-      setOpen(false);
-    };
   const handlechange=(event)=>{
     let isFormValid=true;
 
@@ -155,77 +155,49 @@ function Login() {
     });
   }
   return (
-    <div>
-  <div>
-    <Header></Header></div>
     <div style={{textAlign:'center'}}>
-     {/* { user.isSignedIn ? <button onClick={handleSignOut}>sign out</button>:
-     <button onClick={handleSignIn}>sign in</button>}
+      <h1 className="head33 xx">E-MEDICINE</h1>
+      <br />
+           <h2 className="head33 yy">Your trusted online pharmacy</h2>
+           <br />
+           <h3>Sign In With Your Gmail Account:</h3>
+    {/* <input type="checkbox" onChange={()=>setNewUser(!newUser)} name="newUser" />
+    <label htmlFor="newUser">New User Sign Up</label>
+    <form onSubmit={handlesubmit}>
+     {  newUser && <input onBlur={handlechange} name="name" type="text" />}
+      <br />
+      <h5 className="up">USERNAME:</h5>
+      <input type="text" name="email" onBlur={handlechange} placeholder="Enter Email" required />
+      <br />
+      <h5 className="up">Password:</h5>
+      <input type="password" name="password" onBlur={handlechange} placeholder="Enter Password" required />
+      <br />
+      <input className="adx" type="submit" value="Submit" />
+    </form>
+    <p style={{color:'red'}}>{user.error}</p>
+    {user.success &&  <p style={{color:'green'}}>user {newUser ? 'created':'Logged In'} successfully </p> } */}
+
+
+  
+     { user.isSignedIn ? <button className="adx" onClick={handleSignOut}>Sign Out</button>:
+     <button className="adx" onClick={handleSignIn}>Sign In</button>}
       {
         user.isSignedIn && 
         <div>
           <p>Welcome, {user.name}</p>
           <p>Your email: {user.email}</p>
-          <img src={user.photo} alt="" />
-        </div>
-      } */}
 
-      <h1>Admin Authentication</h1>
-      <input type="checkbox" onChange={()=>setNewUser(!newUser)} name="newUser" />
-      <label htmlFor="newUser">Save Sign in</label>
-      {/* <form onSubmit={handlesubmit}>
-       {  newUser && <input onBlur={handlechange} name="name" type="text" />}
-        <br />
-        <input type="text" name="email" onBlur={handlechange} placeholder="Email" required />
-        <br />
-        <input type="password" name="password" onBlur={handlechange} placeholder="Password" required />
-        <br />
-        <input type="submit" value="Submit" />
-      </form>
-      <p style={{color:'red'}}>{user.error}</p>
-      {user.success &&  <p style={{color:'green'}}>user {newUser ? 'created':'Logged In'} successfully </p> } */}
-    <div><h5 className="up">ADMIN PASSWORD:</h5>
-            <input type="password" name="search" placeholder="PASSWORD" required/>
-            </div>
-         <button className="b4 yyy" variant="outlined" onClick={handleClickOpen}>
-        ENTER
+          <a href="/shop">
+             
+          <button className="adx" href="/shop" variant="outlined" onClick={handleClickOpen}>
+        ENTER HOME PAGE
       </button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>
-           E-MEDICINE
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-          <h1 className="head33 xx">E-MEDICINE</h1>
-           <h3 className="head33 zz"> Add-Delete Product !!</h3>
-            <div className="usern" style={{display:"flex", justifyContent:"center",alignItems:"center"}}>
-                <h5 className="up">Product-Name :</h5>
-            <input type="text" name="search" placeholder="PRODUCT-NAME" required/>
-            </div>
-            <div className="usern" style={{display:"flex", justifyContent:"center",alignItems:"center"}}>
-            <h5 className="up">Seller/Company :</h5>
-            <input type="text" name="search" placeholder="SELLER" required/>
-            </div>
-            <div className="usern" style={{display:"flex", justifyContent:"center",alignItems:"center"}}>
-            <h5 className="up">Unit Price :</h5>
-            <input type="text" name="search" placeholder="$$" required/>
-            </div>
-            <div className="usern" style={{display:"flex", justifyContent:"center",alignItems:"center"}}>
-            <h5 className="up">Date:</h5>
-            <input type="date" name="search" placeholder="DATE" required/>
-            </div>
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-           ADD
-          </Button>
-          <Button onClick={handleClose} color="primary">
-           REMOVE
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </div>
+      </a>
+       
+        </div>
+      }
+
+     
     </div>
   );
 }

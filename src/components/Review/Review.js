@@ -56,6 +56,7 @@ const Review = () => {
             <Header></Header>
         <div className='twin-container'>
         <div className='product-container'>
+          <br />
             <h1>Items in Cart:{cart.length}</h1>
             {
                
